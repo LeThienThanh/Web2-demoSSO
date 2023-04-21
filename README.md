@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# DEMO SSO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Giới thiệu
 
-## Available Scripts
+Demo SSO bằng với jwt (Code trên react js).
 
-In the project directory, you can run:
+## Yêu cầu
 
-### `npm start`
+- Node.js
+- npm (được cài đặt cùng với Node.js)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Cài đặt
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Mở cmd
 
-### `npm test`
+1. Sao chép kho lưu trữ GitHub này về máy tính của bạn:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+git clone [URL của kho lưu trữ GitHub]
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Điều hướng đến thư mục vừa tải xuống và cài đặt các gói phụ thuộc:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd web2
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+3. Tạo một tệp `.env` trong thư mục gốc của ứng dụng và thiết lập các biến môi trường cần thiết:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+touch .env
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Mở tệp `.env` và thêm vào các dòng sau (thay đổi giá trị phù hợp với cấu hình của bạn):
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+API_URL=http://localhost:3001
+SECRET_KEY=your-secret-key
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Khởi động  ứng dụng:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm start
 
-### Code Splitting
+5. Khởi động server (Nếu đã làm tại ứng dụng web1 thì không cần làm bước này nữa):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Mở cmd tại thư mục jwt-auth-api
 
-### Analyzing the Bundle Size
+chạy lệnh node index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+6. Mở trình duyệt của bạn và truy cập vào địa chỉ `http://localhost:3000` (hoặc `http://localhost:3002` cho ứng dụng thứ hai) để kiểm tra ứng dụng.
 
-### Making a Progressive Web App
+## Sử dụng SSO giữa hai ứng dụng
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Để kiểm tra chức năng SSO giữa hai ứng dụng, hãy làm theo các bước sau:
 
-### Advanced Configuration
+1. Đăng nhập vào ứng dụng đầu tiên tại `http://localhost:3000/login` với tài khoản hợp lệ.
+2. Sau khi đăng nhập thành công, bạn sẽ được chuyển hướng đến trang bảo vệ của ứng dụng đầu tiên.
+3. Mở một tab mới trong trình duyệt và truy cập vào địa chỉ `http://localhost:3002/protected` của ứng dụng thứ hai.
+4. Bạn sẽ thấy rằng bạn đã tự động đăng nhập vào ứng dụng thứ hai mà không cần nhập thông tin đăng nhập lại.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
